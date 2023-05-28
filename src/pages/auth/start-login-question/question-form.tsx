@@ -21,7 +21,7 @@ const QuestionFormCard: React.FC = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentConversationIndex((prevIndex) => (prevIndex + 1) % conversations.length);
+      setCurrentConversationIndex((prevIndex) => (prevIndex + 1));
     }, getRandomInterval(700, 3000));
 
     return () => clearInterval(interval);

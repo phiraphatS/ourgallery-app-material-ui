@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Box, Card, CardContent, Fade, ImageList, Typography } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import styles from '@/styles/oldcontent.module.scss'
+import Image from 'next/image';
 
 interface PostCardProps {
     title: string;
