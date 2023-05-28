@@ -2,9 +2,10 @@ import { NextPage } from 'next';
 import HideAppBar from '../component/app-bar';
 import { ReactElement } from 'react';
 import PostCard from '../component/post-card';
-import { Container, Grid, Typography } from '@mui/material';
+import { Container, Grid, Pagination, Stack, Toolbar, Typography } from '@mui/material';
+import React from 'react';
 
-const item = [
+const s1Page = [
     {
         title: 'รอเธอตรงนี้ตลอด',
         subtitle: 'แทบจะนับวินาทีรออยู่ละนะ',
@@ -100,106 +101,10 @@ const item = [
         subtitle: 'ก็ เธอน่ารักอ้า แอร้ยยยย',
         imgsrc: './picpost/pic23.jpg',
     },
-    {
-        title: 'อันนี้ๆๆ',
-        subtitle: 'รู้มั้ยถ้าเราได้อยู่ด้วยกัน นี่คงจะเป็นกิจกรรมที่เราอยากทำกับเธอทุกวันน',
-        imgsrc: './picpost/pic24.jpg',
-    },
-    {
-        title: 'โชคดีสุด',
-        subtitle: 'โชคดีมากอ้า มาเป็นแฟนเดี๋ยวนี้เลยนะ',
-        imgsrc: './picpost/pic25.jpg',
-    },
-    {
-        title: 'อันนี้ก็คือ 5555',
-        subtitle: 'อาจจะไม่ค่อยพูดเพราะเป็นเคส sensitive แต่ก็อยากจูบเธอเหมือนกันนะ (เป็นแฟนกัน)',
-        imgsrc: './picpost/pic26.jpg',
-    },
-    {
-        title: 'ภาพนี้พิเศษ',
-        subtitle: 'อันนี้เป็นภาพที่เราอยากส่งให้เธอซ้ำๆทุกวันเลย',
-        imgsrc: './picpost/pic27.jpg',
-    },
-    {
-        title: 'โลกทั้งใบ',
-        subtitle: 'ย้ำหลายรอบแล้วเก็บไว้หลายภาพด้วยนะ555 เธอเป็นโลกทั้งใบของเรานะ',
-        imgsrc: './picpost/pic28.jpg',
-    },
-    {
-        title: 'ขออ้อนหน่อย',
-        subtitle: 'เป็นได้มะ เด็กน้อยของเธอ',
-        imgsrc: './picpost/pic29.jpg',
-    },
-    {
-        title: 'ไม่ต้องล้าวว',
-        subtitle: 'ฟ้าดันส่งคนที่น่ารักที่สุดในโลกมาให้ล้า ไม่คืนละน้าค้าบ',
-        imgsrc: './picpost/pic30.jpg',
-    },
-    {
-        title: 'จีงงง',
-        subtitle: 'แบบที่งอแงใส่ทุกๆคืนเลยย',
-        imgsrc: './picpost/pic31.jpg',
-    },
-    {
-        title: 'ที่สุด',
-        subtitle: 'เธอน่ารัก! ที่สุดในโลกเลย',
-        imgsrc: './picpost/pic32.jpg',
-    },
-    {
-        title: 'เธอออ',
-        subtitle: 'อยากมีวันครบรอบกับเธอแล้ว',
-        imgsrc: './picpost/pic33.jpg',
-    },
-    {
-        title: 'เป็นยังไงบ้าง',
-        subtitle: 'เล่าเรื่องให้เราฟังเยอะๆเลยนะ สมมุติว่ามดกัดก็ต้องเล่าว่ากัดตรงไหน',
-        imgsrc: './picpost/pic34.jpg',
-    },
-    {
-        title: 'คิดถึงจะแย่',
-        subtitle: 'ฝันกลางวันถึงเธอมันก็มีความสุขมากนะ แต่ก็อยากกอดจะแย่เหมือนกัน',
-        imgsrc: './picpost/pic35.jpg',
-    },
-    {
-        title: 'เฮ้อออ',
-        subtitle: 'จาบ้าตุยยยยยยยย',
-        imgsrc: './picpost/pic36.jpg',
-    },
-    {
-        title: 'ฟ้องให้เราฟัง',
-        subtitle: 'เราจะไปเอาคืนโลกให้',
-        imgsrc: './picpost/pic37.jpg',
-    },
-    {
-        title: 'หวงงงงง',
-        subtitle: 'เคยบอกว่าไม่หวง แต่หวงแล้ววววว ใครจีบเธอเราต่อยหมดไม่สนลูกใคร',
-        imgsrc: './picpost/pic38.jpg',
-    },
-    {
-        title: 'อ่านหน่อย',
-        subtitle: 'อันนี้ก็คือพร้อมเป็นแฟนเธอล้า เก็บภาพนี้ไว้ตั้งแต่เดือนเชแรก',
-        imgsrc: './picpost/pic39.jpg',
-    },
-    {
-        title: 'รักกก',
-        subtitle: 'รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก',
-        imgsrc: './picpost/pic40.jpg',
-    },
-    {
-        title: 'ใช่ๆ ใครเถียงเราต่อยหมด',
-        subtitle: 'อย่ามาบังอาจนะ',
-        imgsrc: './picpost/pic41.jpg',
-    },
-    {
-        title: 'ตุยแน่',
-        subtitle: 'เคยฝันนะ ในฝันกลายเป็นผู้ป่วยติดเตียงไปเลย',
-        imgsrc: './picpost/pic42.jpg',
-    },
-    {
-        title: 'ขอบอกอีกครัง',
-        subtitle: 'เธอน่ารัก! ที่สุดในโลกเลยยยย',
-        imgsrc: './picpost/pic43.jpg',
-    },
+    
+];
+const s2Page = [
+    
     {
         title: 'ใช่ๆ ทำไมนะ',
         subtitle: 'เกิดเป็นคนพิเศษนี่ดีจัง ทำไงเราก็รัก ทำไงเราก็หลง',
@@ -300,91 +205,9 @@ const item = [
         subtitle: 'รอวันกอดเธออยู่ ขอกอดเธอทั้งวันเลยนะ',
         imgsrc: './picpost/pic63.jpg',
     },
-    {
-        title: 'เหมือนอันที่แล้วเลยอ่ะ 5555',
-        subtitle: 'เราดูหมกมุ่นกับการกอดเธอนะ ขอทำเป็นงานอดิเรกเลยได้เป่า',
-        imgsrc: './picpost/pic64.jpg',
-    },
-    {
-        title: 'พูดแล้วจะหาว่าโม้',
-        subtitle: 'เธอเป็นพรวิเศษของเรา ไม่เคยมีความสุขมาก่อนเลยนะในชีวิต เพราะเธอเลย',
-        imgsrc: './picpost/pic65.jpg',
-    },
-    {
-        title: 'อยากเจอแล้วอ่ะ',
-        subtitle: 'ไปหาแล้วได้มะ',
-        imgsrc: './picpost/pic66.jpg',
-    },
-    {
-        title: 'ห้ามเบื่อเลยนะ',
-        subtitle: 'เพราะเราจะอยู่กับเธอทั้งชีวิต',
-        imgsrc: './picpost/pic67.jpg',
-    },
-    {
-        title: 'ของเราคนเดียว',
-        subtitle: 'ของเรา ของเรา ของเรา ของเรา ห้ามให้ใครเข้ามาไกล้เลยนะ',
-        imgsrc: './picpost/pic68.jpg',
-    },
-    {
-        title: 'ฮือออ',
-        subtitle: 'จะร้องแล้วเนี่ย มากอดเลยนะ',
-        imgsrc: './picpost/pic69.jpg',
-    },
-    {
-        title: 'อีกนิดนึงนะ',
-        subtitle: 'ใจขาดแล้วววว มาผายปอดเลยยยย',
-        imgsrc: './picpost/pic70.jpg',
-    },
-    {
-        title: 'จะดูแลให้ดีที่สุดในโลก',
-        subtitle: 'จะไม่มีคนอื่นดูแลเธอได้ดีกว่านี้อีก',
-        imgsrc: './picpost/pic71.jpg',
-    },
-    {
-        title: 'ห้ามนะ',
-        subtitle: 'เราร้องไห้ได้เลยนะ',
-        imgsrc: './picpost/pic72.jpg',
-    },
-    {
-        title: 'พาไปเดต',
-        subtitle: 'อยากเดตกับเธอแล้ว',
-        imgsrc: './picpost/pic73.jpg',
-    },
-    {
-        title: 'ขอเป็นกำลังใจให้',
-        subtitle: 'แต่อยากไปอยู่ด้วยมากกว่า',
-        imgsrc: './picpost/pic74.jpg',
-    },
-    {
-        title: 'ไม่อยากจะพูด',
-        subtitle: 'ชีวิตนี้คงไม่เจออีก คนที่เราจะรักได้แบบนี้',
-        imgsrc: './picpost/pic75.jpg',
-    },
-    {
-        title: 'อยากใช้ชีวิตกับเธอ',
-        subtitle: 'เธออยากได้ห้องแบบไหน ห้อมแบบที่มีรูปเธอติดอยู่ทุกที่เลยมะ ห้องเราเอง',
-        imgsrc: './picpost/pic76.jpg',
-    },
-    {
-        title: 'ไม่ต้องการก็ห้ามไปแล้ว เราเป็นของเธอแล้ว',
-        subtitle: 'อันนี้ขอลบเขียนใหม่',
-        imgsrc: './picpost/pic77.jpg',
-    },
-    {
-        title: 'อยากมีพลังวิเศษ',
-        subtitle: 'วาร์ปไปกอดเธอ จุ๊บสัก 199 ที แล้วค่อยกลับ',
-        imgsrc: './picpost/pic78.jpg',
-    },
-    {
-        title: 'กอดดด ๆ ๆ ๆ',
-        subtitle: 'กว่าจะหายคิดถึงคงต้องกอดเธอไปเลยตลอดชีวิต',
-        imgsrc: './picpost/pic79.jpg',
-    },
-    {
-        title: 'เราเป็นแฟนที่ดีได้นะ',
-        subtitle: 'ดีที่สุดในโลกเลยด้วย',
-        imgsrc: './picpost/pic80.jpg',
-    },
+    
+];
+const s3Page = [
     {
         title: 'มีความสุข',
         subtitle: 'มีความสุขจนขาดความสุขนี้ไปไม่ได้แล้วอ่ะ',
@@ -485,91 +308,9 @@ const item = [
         subtitle: 'คนเก่งของเค้าาาาาาาาาา',
         imgsrc: './picpost/pic102.jpg',
     },
-    {
-        title: 'ซัพพอร์ตเสมอ',
-        subtitle: 'ต่อไปนี้กอดเราเป็นของเธอ',
-        imgsrc: './picpost/pic103.jpg',
-    },
-    {
-        title: 'ให้ดอกไม้',
-        subtitle: 'ถ้าไม่พอมาชาร์จแบตนะ',
-        imgsrc: './picpost/pic104.jpg',
-    },
-    {
-        title: 'คนเก่งค้าบ',
-        subtitle: 'ถ้าไม่ดูแลตัวเองเราจะไปดูแลให้แล้วนะ',
-        imgsrc: './picpost/pic105.jpg',
-    },
-    {
-        title: 'อันนี้ของจริงมาก',
-        subtitle: 'เปิดใจปุ๊บก็เจอเลย พรมเช็ดเท้าของเค้า',
-        imgsrc: './picpost/pic106.jpg',
-    },
-    {
-        title: 'เพราะเธอเป็นกำลังใจมาตลอด',
-        subtitle: 'ตั้งแต่มีเธอ นอนน้อยไปสองวันก็ยังไม่เหนื่อย',
-        imgsrc: './picpost/pic107.jpg',
-    },
-    {
-        title: 'หงอยแล้วว',
-        subtitle: 'คิดถึงอ้าาา มาหาเลยนะ',
-        imgsrc: './picpost/pic108.jpg',
-    },
-    {
-        title: 'ชอบทุกอย่างเลยย',
-        subtitle: 'ชอบเธอรักเธอไปหมด',
-        imgsrc: './picpost/pic109.jpg',
-    },
-    {
-        title: 'แต่งงานกันนะ',
-        subtitle: 'ขอตั้งแต่ตอนนี้เลยได้มั้ยอ้าาาา',
-        imgsrc: './picpost/pic110.jpg',
-    },
-    {
-        title: 'เธอน่ารักสิ',
-        subtitle: 'น่ารักที่สุดในโลกของเราเลยนะ',
-        imgsrc: './picpost/pic112.jpg',
-    },
-    {
-        title: 'ขีดเส้นเลยนะว่า "เรารักเธอนะ"',
-        subtitle: 'มองบ่อยๆทุกวันเลยนะ',
-        imgsrc: './picpost/pic113.jpg',
-    },
-    {
-        title: 'ขออ้อนนานๆเลยนะ',
-        subtitle: 'แปลว่าตลอดไปเลยนะ',
-        imgsrc: './picpost/pic114.jpg',
-    },
-    {
-        title: 'ทั้งตัวและใจ',
-        subtitle: 'มาเอาไปเล้ยย',
-        imgsrc: './picpost/pic115.jpg',
-    },
-    {
-        title: 'รักมากนะ',
-        subtitle: 'โคตรรักเลยอ่ะ',
-        imgsrc: './picpost/pic116.jpg',
-    },
-    {
-        title: 'ตั้งใจรักเธอแล้ว',
-        subtitle: 'รักเรากลับหน่อยนะ',
-        imgsrc: './picpost/pic117.jpg',
-    },
-    {
-        title: 'ไม่ได้',
-        subtitle: 'ไม่เคยคิดเลยว่าตัวเองจะไหวถ้าไม่มีเธอ ไม่กล้าคิดด้วย',
-        imgsrc: './picpost/pic118.jpg',
-    },
-    {
-        title: 'แปลว่าน่ารักที่สุดละ',
-        subtitle: 'หิวเลย ขอขบๆแก้มเธอนิดนึงได้มะ',
-        imgsrc: './picpost/pic119.jpg',
-    },
-    {
-        title: 'หวงมากกก',
-        subtitle: 'เคยบอกว่าไม่ขี้หวง แต่ตอนนี้ขี้หวงแล้วว',
-        imgsrc: './picpost/pic120.jpg',
-    },
+    
+];
+const s4Page = [
     {
         title: 'อยากกอดอ้าา',
         subtitle: 'เธ้ออออ เราไม่ไหววว',
@@ -670,6 +411,283 @@ const item = [
         subtitle: 'ใจเราจะออกมาเต้นข้างนอกแล้วนะ',
         imgsrc: './picpost/pic140.jpg',
     },
+    
+];
+const s5Page = [
+    {
+        title: 'อันนี้ๆๆ',
+        subtitle: 'รู้มั้ยถ้าเราได้อยู่ด้วยกัน นี่คงจะเป็นกิจกรรมที่เราอยากทำกับเธอทุกวันน',
+        imgsrc: './picpost/pic24.jpg',
+    },
+    {
+        title: 'โชคดีสุด',
+        subtitle: 'โชคดีมากอ้า มาเป็นแฟนเดี๋ยวนี้เลยนะ',
+        imgsrc: './picpost/pic25.jpg',
+    },
+    {
+        title: 'อันนี้ก็คือ 5555',
+        subtitle: 'อาจจะไม่ค่อยพูดเพราะเป็นเคส sensitive แต่ก็อยากจูบเธอเหมือนกันนะ (เป็นแฟนกัน)',
+        imgsrc: './picpost/pic26.jpg',
+    },
+    {
+        title: 'ภาพนี้พิเศษ',
+        subtitle: 'อันนี้เป็นภาพที่เราอยากส่งให้เธอซ้ำๆทุกวันเลย',
+        imgsrc: './picpost/pic27.jpg',
+    },
+    {
+        title: 'โลกทั้งใบ',
+        subtitle: 'ย้ำหลายรอบแล้วเก็บไว้หลายภาพด้วยนะ555 เธอเป็นโลกทั้งใบของเรานะ',
+        imgsrc: './picpost/pic28.jpg',
+    },
+    {
+        title: 'ขออ้อนหน่อย',
+        subtitle: 'เป็นได้มะ เด็กน้อยของเธอ',
+        imgsrc: './picpost/pic29.jpg',
+    },
+    {
+        title: 'ไม่ต้องล้าวว',
+        subtitle: 'ฟ้าดันส่งคนที่น่ารักที่สุดในโลกมาให้ล้า ไม่คืนละน้าค้าบ',
+        imgsrc: './picpost/pic30.jpg',
+    },
+    {
+        title: 'จีงงง',
+        subtitle: 'แบบที่งอแงใส่ทุกๆคืนเลยย',
+        imgsrc: './picpost/pic31.jpg',
+    },
+    {
+        title: 'ที่สุด',
+        subtitle: 'เธอน่ารัก! ที่สุดในโลกเลย',
+        imgsrc: './picpost/pic32.jpg',
+    },
+    {
+        title: 'เธอออ',
+        subtitle: 'อยากมีวันครบรอบกับเธอแล้ว',
+        imgsrc: './picpost/pic33.jpg',
+    },
+    {
+        title: 'เป็นยังไงบ้าง',
+        subtitle: 'เล่าเรื่องให้เราฟังเยอะๆเลยนะ สมมุติว่ามดกัดก็ต้องเล่าว่ากัดตรงไหน',
+        imgsrc: './picpost/pic34.jpg',
+    },
+    {
+        title: 'คิดถึงจะแย่',
+        subtitle: 'ฝันกลางวันถึงเธอมันก็มีความสุขมากนะ แต่ก็อยากกอดจะแย่เหมือนกัน',
+        imgsrc: './picpost/pic35.jpg',
+    },
+    {
+        title: 'เฮ้อออ',
+        subtitle: 'จาบ้าตุยยยยยยยย',
+        imgsrc: './picpost/pic36.jpg',
+    },
+    {
+        title: 'ฟ้องให้เราฟัง',
+        subtitle: 'เราจะไปเอาคืนโลกให้',
+        imgsrc: './picpost/pic37.jpg',
+    },
+    {
+        title: 'หวงงงงง',
+        subtitle: 'เคยบอกว่าไม่หวง แต่หวงแล้ววววว ใครจีบเธอเราต่อยหมดไม่สนลูกใคร',
+        imgsrc: './picpost/pic38.jpg',
+    },
+    {
+        title: 'อ่านหน่อย',
+        subtitle: 'อันนี้ก็คือพร้อมเป็นแฟนเธอล้า เก็บภาพนี้ไว้ตั้งแต่เดือนเชแรก',
+        imgsrc: './picpost/pic39.jpg',
+    },
+    {
+        title: 'รักกก',
+        subtitle: 'รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก รัก',
+        imgsrc: './picpost/pic40.jpg',
+    },
+    {
+        title: 'ใช่ๆ ใครเถียงเราต่อยหมด',
+        subtitle: 'อย่ามาบังอาจนะ',
+        imgsrc: './picpost/pic41.jpg',
+    },
+    {
+        title: 'ตุยแน่',
+        subtitle: 'เคยฝันนะ ในฝันกลายเป็นผู้ป่วยติดเตียงไปเลย',
+        imgsrc: './picpost/pic42.jpg',
+    },
+    {
+        title: 'ขอบอกอีกครัง',
+        subtitle: 'เธอน่ารัก! ที่สุดในโลกเลยยยย',
+        imgsrc: './picpost/pic43.jpg',
+    },
+]
+const s6Page = [
+    {
+        title: 'เหมือนอันที่แล้วเลยอ่ะ 5555',
+        subtitle: 'เราดูหมกมุ่นกับการกอดเธอนะ ขอทำเป็นงานอดิเรกเลยได้เป่า',
+        imgsrc: './picpost/pic64.jpg',
+    },
+    {
+        title: 'พูดแล้วจะหาว่าโม้',
+        subtitle: 'เธอเป็นพรวิเศษของเรา ไม่เคยมีความสุขมาก่อนเลยนะในชีวิต เพราะเธอเลย',
+        imgsrc: './picpost/pic65.jpg',
+    },
+    {
+        title: 'อยากเจอแล้วอ่ะ',
+        subtitle: 'ไปหาแล้วได้มะ',
+        imgsrc: './picpost/pic66.jpg',
+    },
+    {
+        title: 'ห้ามเบื่อเลยนะ',
+        subtitle: 'เพราะเราจะอยู่กับเธอทั้งชีวิต',
+        imgsrc: './picpost/pic67.jpg',
+    },
+    {
+        title: 'ของเราคนเดียว',
+        subtitle: 'ของเรา ของเรา ของเรา ของเรา ห้ามให้ใครเข้ามาไกล้เลยนะ',
+        imgsrc: './picpost/pic68.jpg',
+    },
+    {
+        title: 'ฮือออ',
+        subtitle: 'จะร้องแล้วเนี่ย มากอดเลยนะ',
+        imgsrc: './picpost/pic69.jpg',
+    },
+    {
+        title: 'อีกนิดนึงนะ',
+        subtitle: 'ใจขาดแล้วววว มาผายปอดเลยยยย',
+        imgsrc: './picpost/pic70.jpg',
+    },
+    {
+        title: 'จะดูแลให้ดีที่สุดในโลก',
+        subtitle: 'จะไม่มีคนอื่นดูแลเธอได้ดีกว่านี้อีก',
+        imgsrc: './picpost/pic71.jpg',
+    },
+    {
+        title: 'ห้ามนะ',
+        subtitle: 'เราร้องไห้ได้เลยนะ',
+        imgsrc: './picpost/pic72.jpg',
+    },
+    {
+        title: 'พาไปเดต',
+        subtitle: 'อยากเดตกับเธอแล้ว',
+        imgsrc: './picpost/pic73.jpg',
+    },
+    {
+        title: 'ขอเป็นกำลังใจให้',
+        subtitle: 'แต่อยากไปอยู่ด้วยมากกว่า',
+        imgsrc: './picpost/pic74.jpg',
+    },
+    {
+        title: 'ไม่อยากจะพูด',
+        subtitle: 'ชีวิตนี้คงไม่เจออีก คนที่เราจะรักได้แบบนี้',
+        imgsrc: './picpost/pic75.jpg',
+    },
+    {
+        title: 'อยากใช้ชีวิตกับเธอ',
+        subtitle: 'เธออยากได้ห้องแบบไหน ห้อมแบบที่มีรูปเธอติดอยู่ทุกที่เลยมะ ห้องเราเอง',
+        imgsrc: './picpost/pic76.jpg',
+    },
+    {
+        title: 'ไม่ต้องการก็ห้ามไปแล้ว เราเป็นของเธอแล้ว',
+        subtitle: 'อันนี้ขอลบเขียนใหม่',
+        imgsrc: './picpost/pic77.jpg',
+    },
+    {
+        title: 'อยากมีพลังวิเศษ',
+        subtitle: 'วาร์ปไปกอดเธอ จุ๊บสัก 199 ที แล้วค่อยกลับ',
+        imgsrc: './picpost/pic78.jpg',
+    },
+    {
+        title: 'กอดดด ๆ ๆ ๆ',
+        subtitle: 'กว่าจะหายคิดถึงคงต้องกอดเธอไปเลยตลอดชีวิต',
+        imgsrc: './picpost/pic79.jpg',
+    },
+    {
+        title: 'เราเป็นแฟนที่ดีได้นะ',
+        subtitle: 'ดีที่สุดในโลกเลยด้วย',
+        imgsrc: './picpost/pic80.jpg',
+    },
+    {
+        title: 'ซัพพอร์ตเสมอ',
+        subtitle: 'ต่อไปนี้กอดเราเป็นของเธอ',
+        imgsrc: './picpost/pic103.jpg',
+    },
+    {
+        title: 'ให้ดอกไม้',
+        subtitle: 'ถ้าไม่พอมาชาร์จแบตนะ',
+        imgsrc: './picpost/pic104.jpg',
+    },
+    {
+        title: 'คนเก่งค้าบ',
+        subtitle: 'ถ้าไม่ดูแลตัวเองเราจะไปดูแลให้แล้วนะ',
+        imgsrc: './picpost/pic105.jpg',
+    },
+]
+const s7Page = [
+    {
+        title: 'อันนี้ของจริงมาก',
+        subtitle: 'เปิดใจปุ๊บก็เจอเลย พรมเช็ดเท้าของเค้า',
+        imgsrc: './picpost/pic106.jpg',
+    },
+    {
+        title: 'เพราะเธอเป็นกำลังใจมาตลอด',
+        subtitle: 'ตั้งแต่มีเธอ นอนน้อยไปสองวันก็ยังไม่เหนื่อย',
+        imgsrc: './picpost/pic107.jpg',
+    },
+    {
+        title: 'หงอยแล้วว',
+        subtitle: 'คิดถึงอ้าาา มาหาเลยนะ',
+        imgsrc: './picpost/pic108.jpg',
+    },
+    {
+        title: 'ชอบทุกอย่างเลยย',
+        subtitle: 'ชอบเธอรักเธอไปหมด',
+        imgsrc: './picpost/pic109.jpg',
+    },
+    {
+        title: 'แต่งงานกันนะ',
+        subtitle: 'ขอตั้งแต่ตอนนี้เลยได้มั้ยอ้าาาา',
+        imgsrc: './picpost/pic110.jpg',
+    },
+    {
+        title: 'เธอน่ารักสิ',
+        subtitle: 'น่ารักที่สุดในโลกของเราเลยนะ',
+        imgsrc: './picpost/pic112.jpg',
+    },
+    {
+        title: 'ขีดเส้นเลยนะว่า "เรารักเธอนะ"',
+        subtitle: 'มองบ่อยๆทุกวันเลยนะ',
+        imgsrc: './picpost/pic113.jpg',
+    },
+    {
+        title: 'ขออ้อนนานๆเลยนะ',
+        subtitle: 'แปลว่าตลอดไปเลยนะ',
+        imgsrc: './picpost/pic114.jpg',
+    },
+    {
+        title: 'ทั้งตัวและใจ',
+        subtitle: 'มาเอาไปเล้ยย',
+        imgsrc: './picpost/pic115.jpg',
+    },
+    {
+        title: 'รักมากนะ',
+        subtitle: 'โคตรรักเลยอ่ะ',
+        imgsrc: './picpost/pic116.jpg',
+    },
+    {
+        title: 'ตั้งใจรักเธอแล้ว',
+        subtitle: 'รักเรากลับหน่อยนะ',
+        imgsrc: './picpost/pic117.jpg',
+    },
+    {
+        title: 'ไม่ได้',
+        subtitle: 'ไม่เคยคิดเลยว่าตัวเองจะไหวถ้าไม่มีเธอ ไม่กล้าคิดด้วย',
+        imgsrc: './picpost/pic118.jpg',
+    },
+    {
+        title: 'แปลว่าน่ารักที่สุดละ',
+        subtitle: 'หิวเลย ขอขบๆแก้มเธอนิดนึงได้มะ',
+        imgsrc: './picpost/pic119.jpg',
+    },
+    {
+        title: 'หวงมากกก',
+        subtitle: 'เคยบอกว่าไม่ขี้หวง แต่ตอนนี้ขี้หวงแล้วว',
+        imgsrc: './picpost/pic120.jpg',
+    },
     {
         title: 'my happiness',
         subtitle: 'ต้องดีมากแน่ๆ ถ้ามันจะเป็นแบบนี้ไปตลอดชีวิตเลย',
@@ -700,6 +718,9 @@ const item = [
         subtitle: 'คิดถึงงงงงงง พิมพ์ไปคิดถึงไป',
         imgsrc: './picpost/pic146.jpg',
     },
+    
+]
+const s8Page = [
     {
         title: 'ขอแค่มีเธอ',
         subtitle: 'อยากไปเที่ยวด้วยกันจัง',
@@ -800,6 +821,9 @@ const item = [
         subtitle: 'แบบแน่นทั้งวันเลยอ่ะ',
         imgsrc: './picpost/pic167.jpg',
     },
+
+]
+const s9Page = [
     {
         title: 'งอแงแล้วนะ',
         subtitle: 'ไอต้าวน่ารัก',
@@ -900,6 +924,9 @@ const item = [
         subtitle: 'มันยิ้มเองอ่ะ',
         imgsrc: './picpost/pic188.jpg',
     },
+  
+]
+const s10Page = [
     {
         title: 'ร้ายมาก',
         subtitle: 'ทำซะเราติดหนึบแกะไม่ออกเลย',
@@ -926,16 +953,57 @@ const item = [
         imgsrc: './picpost/pic193.jpg',
     },
 ]
-
 export default function MultiContentFade() {
+    const [item, setItem] = React.useState(s1Page);
+    const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+        switch (value) {
+            case 1: setItem(s1Page);
+                break;
+            case 2: setItem(s2Page);
+                break;
+            case 3: setItem(s3Page);
+                break;
+            case 4: setItem(s4Page);
+                break;
+            case 5: setItem(s5Page);
+                break;
+            case 6: setItem(s6Page);
+                break;
+            case 7: setItem(s7Page);
+                break;
+            case 8: setItem(s8Page);
+                break;
+            case 9: setItem(s9Page);
+                break;
+            case 10: setItem(s10Page);
+                break;
+        }
+
+        const anchor = (
+            (event.target as HTMLDivElement).ownerDocument || document
+        ).querySelector('#back-to-top-anchor');
+
+        if (anchor) {
+            anchor.scrollIntoView({
+                block: 'center',
+                behavior: 'smooth',
+            });
+        }
+    };
+
     return (
         <>
             <Grid sx={{ flexGrow: 1, justifyContent: 'center', margin: 'auto', width: 'auto', gap: '2rem' }} container spacing={8}>
+                <Toolbar id="back-to-top-anchor" />
                 {item.map((x, index) => (
                     <PostCard title={x.title} subtitle={x.subtitle} imgsrc={x.imgsrc} id={index.toString()} key={index.toString()} />
                 ))}
                 {/* Add more post cards as needed */}
             </Grid>
+            <br />
+            <Stack spacing={1} style={{width: '100vw', alignItems: 'center'}}>
+                <Pagination count={10} defaultPage={1} onChange={handleChange} size="large" />
+            </Stack>
         </>
     );
 };
