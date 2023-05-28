@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.scss'
 import React, { ReactElement } from 'react'
 import { Alert, AlertTitle, Button, Card, CardActions, CardContent, Divider, Fade, Grid, Stack, Typography } from '@mui/material';
@@ -10,7 +9,6 @@ import HideAppBar from '../component/app-bar'
 import MasonryImageList from '../component/her-img-present'
 import router from 'next/router'
 
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
 
