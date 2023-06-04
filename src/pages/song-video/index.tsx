@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import HideAppBar from "../component/app-bar";
 import SongList from "../component/youtube-box";
-import { Container, Grid, Pagination, Stack, Typography } from "@mui/material";
+import { Container, Grid, Pagination, Stack, Toolbar, Typography } from "@mui/material";
 
 
 interface Song {
@@ -241,11 +241,22 @@ export default function YoutubeBox() {
       case 15: satPage(songs15);
         break;
     }
+
+    const anchor = (
+      (event.target as HTMLDivElement).ownerDocument || document
+    ).querySelector('#back-to-top-anchor');
+
+    if (anchor) {
+      anchor.scrollIntoView({
+        block: 'center',
+        behavior: 'smooth',
+      });
+    }
   }
 
   return (
     <Container maxWidth="md">
-      <Typography variant="h4" component="h1">
+      <Typography variant="h4" component="h1" id="back-to-top-anchor">
         Your Music
       </Typography>
       <Grid container spacing={2}>
@@ -253,9 +264,7 @@ export default function YoutubeBox() {
           <SongList songs={page} />
         </Grid>
       </Grid>
-      <Stack spacing={1} style={{ width: '100vw', alignItems: 'center' }}>
-        <Pagination count={15} defaultPage={1} onChange={handleChange} size="large" />
-      </Stack>
+      <Pagination count={15} defaultPage={1} siblingCount={0} onChange={handleChange} />
     </Container>
   );
 };
