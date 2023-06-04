@@ -1,10 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { PlayCircleOutline } from '@mui/icons-material';
 import { Button, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
-import YouTube from 'react-youtube'; // Install 'react-youtube' package';
-
-import LinearProgress from '@mui/material/LinearProgress';
-import { log } from 'console';
+import YouTube from 'react-youtube';
 
 interface Song {
   id: number;
