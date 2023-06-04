@@ -67,7 +67,7 @@ const SongList: React.FC<SongListProps> = ({ songs }) => {
   return (
     <div>
       <List>
-        {songs.map((song) => (
+        {songs && songs.map((song) => (
           <ListItemButton selected={song.videoId === currentVideoId} key={song.id} sx={{ '&:hover': { backgroundColor: '#f5f5f5' } }} onClick={() => playVideo(song.videoId)}>
             <ListItemIcon>
               <PlayCircleOutline color="primary" fontSize="large" />
