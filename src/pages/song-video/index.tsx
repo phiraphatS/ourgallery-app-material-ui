@@ -1,18 +1,8 @@
 import React, { ReactElement } from "react";
 import HideAppBar from "../component/app-bar";
 import SongList from "../component/youtube-box";
-import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid, Pagination, Stack, Typography } from "@mui/material";
 
-const useStyles = makeStyles((theme) => ({
-  container: {
-    marginTop: theme.spacing(4),
-    marginBottom: theme.spacing(4),
-  },
-  header: {
-    marginBottom: theme.spacing(2),
-  },
-}));
 
 interface Song {
   id: number;
@@ -217,7 +207,6 @@ const songs15: Song[] = [
 
 export default function YoutubeBox() {
   const [page, satPage] = React.useState(songs1)
-  const classes = useStyles();
 
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
     switch (value) {
@@ -255,8 +244,8 @@ export default function YoutubeBox() {
   }
 
   return (
-    <Container maxWidth="md" className={classes.container}>
-      <Typography variant="h4" component="h1" className={classes.header}>
+    <Container maxWidth="md">
+      <Typography variant="h4" component="h1">
         Your Music
       </Typography>
       <Grid container spacing={2}>
